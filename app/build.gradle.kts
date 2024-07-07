@@ -1,6 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+
+    alias(libs.plugins.kapt)
+    alias(libs.plugins.hilt)
+//    alias(libs.plugins.kotlin.parcelize)
+
 }
 
 android {
@@ -59,6 +64,44 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    //Splash Api
+    implementation (libs.androidx.core.splashscreen)
+
+    //Compose Navigation
+    implementation (libs.androidx.navigation.compose)
+
+    //Dagger Hilt
+    implementation (libs.hilt.android)
+    kapt (libs.hilt.compiler)
+    implementation (libs.androidx.hilt.navigation.compose)
+
+
+    //Retrofit
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+
+    //Coil
+    implementation(libs.coil.compose)
+
+    //Datastore
+    implementation (libs.androidx.datastore.preferences)
+
+    //Compose Foundation
+    implementation (libs.androidx.foundation)
+
+//    //Accompanist
+//    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta")
+
+    //Paging 3
+    implementation (libs.androidx.paging.runtime)
+    implementation (libs.androidx.paging.compose)
+
+    //Room
+    implementation (libs.androidx.room.runtime)
+    kapt (libs.androidx.room.compiler)
+    implementation (libs.androidx.room.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -66,4 +109,13 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+hilt {
+    enableAggregatingTask = false
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

@@ -1,10 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 
     alias(libs.plugins.kapt)
     alias(libs.plugins.hilt)
-//    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.kotlin.parcelize)
 
 }
 

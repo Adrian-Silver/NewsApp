@@ -61,7 +61,9 @@ kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin"}
 # Hilt
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid"}
 # Kotlin Parcelize
-#kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlinPlugin"}
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlinPlugin"}
 # KotlinPluginSerialization
 kotlin-serialize = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinPlugin"}
+
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlinPlugin"}
 

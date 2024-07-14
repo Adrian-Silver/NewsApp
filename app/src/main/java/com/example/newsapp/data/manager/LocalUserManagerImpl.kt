@@ -19,9 +19,7 @@ private object PreferencesKeys {
 }
 
 class LocalUserManagerImpl(
-    private val context: Context,
-//    private val dataStore: DataStore<Preferences>
-
+    private val context: Context
 ): LocalUserManager {
 
     override suspend fun saveAppEntry() {

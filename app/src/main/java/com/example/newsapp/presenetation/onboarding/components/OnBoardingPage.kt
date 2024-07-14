@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.newsapp.R
 import com.example.newsapp.presenetation.Dimens.MediumPadding1
 import com.example.newsapp.presenetation.Dimens.MediumPadding2
+import com.example.newsapp.presenetation.Dimens.SmallPadding
 import com.example.newsapp.presenetation.onboarding.Page
 import com.example.newsapp.ui.theme.NewsAppTheme
 
@@ -42,7 +44,8 @@ fun OnBoardingPage(
         Spacer(modifier = Modifier.height(MediumPadding1))
         
         Text(
-            modifier = Modifier.height(MediumPadding2),
+//            modifier = Modifier.padding(MediumPadding2),
+            modifier = Modifier.padding(SmallPadding),
             text = page.title,
             style = MaterialTheme.typography.displaySmall.copy(fontWeight = FontWeight.Bold),
             color = colorResource(id = R.color.display_small)
@@ -50,7 +53,8 @@ fun OnBoardingPage(
 
 
         Text(
-            modifier = Modifier.height(MediumPadding2),
+//            modifier = Modifier.padding(MediumPadding2),
+            modifier = Modifier.padding(SmallPadding),
             text = page.description,
             style = MaterialTheme.typography.bodyMedium,
             color = colorResource(id = R.color.text_medium)

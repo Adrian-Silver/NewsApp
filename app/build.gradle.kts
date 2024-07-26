@@ -1,3 +1,7 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -9,6 +13,14 @@ plugins {
 
 }
 
+//val properties = Properties().apply {
+//    load(FileInputStream(rootProject.file("local.properties")))
+//}
+//
+//fun getApiKey(propertyKey: String): String {
+//    return gradleLocalProperties(rootDir).getProperty(propertyKey)
+//}
+
 android {
     namespace = "com.example.newsapp"
     compileSdk = 34
@@ -19,6 +31,24 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+
+////        buildConfigField("String", "API_KEY", "\"${System.getenv("api.key")}\"")
+//        buildConfigField("String", "API_KEY", getApiKey("api.key"))
+//        properties
+
+        // load the values from .properties file
+        val keystoreFile = project.rootProject.file("apikeys.properties")
+        val properties = Properties()
+        properties.load(keystoreFile.inputStream())
+
+        // return empty key in case something goes wrong
+        val apiKey = properties.getProperty("API_KEY") ?: ""
+
+        buildConfigField(
+            type = "String",
+            name = "API_KEY",
+            value = apiKey
+        )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -44,6 +74,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -54,6 +85,8 @@ android {
         }
     }
 }
+
+
 
 dependencies {
 

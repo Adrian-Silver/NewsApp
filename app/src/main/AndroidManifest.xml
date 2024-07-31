@@ -16,7 +16,7 @@
         android:theme="@style/App.Starting.Theme"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".presenetation.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/App.Starting.Theme">
@@ -27,5 +27,18 @@
             </intent-filter>
         </activity>
     </application>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <data android:mimeType="text/plain" />
+        </intent>
+    </queries>
 
 </manifest>

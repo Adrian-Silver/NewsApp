@@ -13,7 +13,7 @@ class NewsPagingSource(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ArticleEntity> {
         return try {
-            val pageNumber = params.key ?: 0
+            val pageNumber = params.key ?: 1
 
             val newsResponse = newsApi.getNews(sources = sources, page = pageNumber)
 

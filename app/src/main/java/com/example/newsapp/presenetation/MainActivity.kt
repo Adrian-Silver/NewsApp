@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
             NewsAppTheme {
 
                 Box(modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
-                    OnBoardingScreen()
+//                    OnBoardingScreen()
                 }
 
             }

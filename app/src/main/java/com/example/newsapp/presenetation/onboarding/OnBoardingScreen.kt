@@ -31,7 +31,9 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(
+    onEvent: (OnBoardingEvent) -> Unit
+) {
 
 //    val isSystemInDarkMode = isSystemInDarkTheme()
 //    val systemUiColor = rememberSystemUiController()
@@ -100,8 +102,11 @@ fun OnBoardingScreen() {
                     text = buttonsState.value[1],
                     onClick = {
                         scope.launch {
-                            if (pagerState.currentPage == 3) {
-                                // Navigate to the main screen and save a value in datastore preferences
+//                            if (pagerState.currentPage == 3) {
+                            if (pagerState.currentPage == 2) {
+//                                TODO Navigate to the main screen and save a value in datastore preferences
+                                onEvent(OnBoardingEvent.SaveAppEntry)
+
                             } else {
                                 pagerState.animateScrollToPage(
                                     page = pagerState.currentPage + 1
